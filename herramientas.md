@@ -16,6 +16,7 @@ Los notebooks no importan módulos compartidos, porque cada uno debe funcionar s
 |---|---|---|---|---|
 | `configuracion` | v1 | 01 | todos | Importaciones, estilo de gráficos, `deslizador`, `interactuar`, `verificar`, `guardar`. |
 | `relajacion` | — | 07 | 08, 10, 15, 25 | Laplace/Poisson por Gauss–Seidel rojo-negro; coeficiente variable con `spsolve`. |
+| `momentos_axial` | v1 | 05 | 08 (imágenes frente a numérico) | Método de momentos para conductores con simetría de revolución: σ, capacidad, matriz C. |
 | `biot_savart` | — | 12 | 13, 14, 17, 26 | Campo **B** de poligonales. |
 | `boris` | — | 14 | 29 (versión relativista) | Integrador de la fuerza de Lorentz. |
 | `fdtd1d` | — | 18 | 27 | Maxwell en 1D, esquema de Yee. |
