@@ -13,7 +13,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 <!-- TABLA-INICIO -->
 | Clase | Notebook | Abrir |
 |---|---|---|
-| 01 | Clase 1 — Vectores, tensores y campos: ¿qué es físico y qué son coordenadas? | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/01_tensores_campos.ipynb) |
+| 01 | Clase 1 — Vectores, tensores y campos: ecuaciones que no dependen de los ejes | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/01_tensores_campos.ipynb) |
 | 02 | Clase 2 — Coulomb, la delta de Dirac y la ley de Gauss | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/02_coulomb_gauss.ipynb) |
 | 03 | Clase 3 — El potencial electrostático | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/03_potencial.ipynb) |
 | 04 | Clase 4 — Energía electrostática y el tensor de tensiones de Maxwell | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/04_energia_tensiones.ipynb) |

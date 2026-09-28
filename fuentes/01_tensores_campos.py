@@ -1,5 +1,5 @@
 # %% [markdown]
-# # Clase 1 — Vectores, tensores y campos: ¿qué es físico y qué son coordenadas?
+# # Clase 1 — Vectores, tensores y campos: ecuaciones que no dependen de los ejes
 #
 # **Objetivos**
 # - Ver la divergencia y el rotor como *deformaciones locales*: cuánto se expande una mancha y cuánto gira.
