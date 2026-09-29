@@ -18,6 +18,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 03 | Clase 3 — El potencial electrostático | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/03_potencial.ipynb) |
 | 04 | Clase 4 — Energía electrostática y el tensor de tensiones de Maxwell | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/04_energia_tensiones.ipynb) |
 | 05 | Clase 5 — Conductores y capacidad | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/05_conductores.ipynb) |
+| 06 | Clase 6 — Desarrollo multipolar | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/06_multipolos.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
