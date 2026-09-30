@@ -20,6 +20,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 05 | Clase 5 — Conductores y capacidad | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/05_conductores.ipynb) |
 | 06 | Clase 6 — Desarrollo multipolar | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/06_multipolos.ipynb) |
 | 07 | Clase 7 — Unicidad, principio variacional y funciones armónicas | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/07_unicidad_relajacion.ipynb) |
+| 08 | Clase 8 — El método de imágenes | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/08_imagenes.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
