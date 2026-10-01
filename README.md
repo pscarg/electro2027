@@ -23,6 +23,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 08 | Clase 8 — El método de imágenes | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/08_imagenes.ipynb) |
 | 09 | Clase 9 — Funciones de Green y funciones ortogonales | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/09_green_fourier.ipynb) |
 | 10 | Clase 10 — Separación de variables en cartesianas y cilíndricas | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/10_cartesianas_cilindricas.ipynb) |
+| 11 | Clase 11 — Coordenadas esféricas y polinomios de Legendre | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/11_legendre.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
