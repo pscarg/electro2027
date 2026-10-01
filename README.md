@@ -29,6 +29,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 14 | Clase 14 — El dipolo magnético y el movimiento de cargas en campos | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/14_dipolos_movimiento.ipynb) |
 | 15 | Clase 15 — Corriente en los materiales: Ohm, Drude, Joule y la fuerza electromotriz | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/15_ohm_drude.ipynb) |
 | 16 | Clase 16 — La ley de Faraday | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/16_faraday.ipynb) |
+| 17 | Clase 17 — Energía magnética, inductancia y circuitos | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/17_inductancia.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
