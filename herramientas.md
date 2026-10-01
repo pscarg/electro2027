@@ -19,5 +19,5 @@ Los notebooks no importan módulos compartidos, porque cada uno debe funcionar s
 | `momentos_axial` | v1 | 05 | 08 (imágenes frente a numérico) | Método de momentos para conductores con simetría de revolución: σ, capacidad, matriz C. |
 | `biot_savart` | v1 | 12 | 13, 14, 17, 26 | `campo_poligonal`: **B** exacto de una poligonal (fórmula de cada segmento), por bloques; `espira`, `campo_espiras` (solenoide como pila de espiras). |
 | `potencial_vector` | v1 | 13 | 14, 17 | `potencial_poligonal`: **A** exacto (calibre de Coulomb) de una poligonal, con ln[(R₁+R₂+ℓ)/(R₁+R₂−ℓ)] por segmento. |
-| `boris` | — | 14 | 29 (versión relativista) | Integrador de la fuerza de Lorentz. |
+| `boris` | v1 | 14 | 29 (versión relativista) | `boris`: integrador de Boris (no relativista) de M dv/dt = q(E + v×B/c); con E = 0 conserva \|v\| exactamente. |
 | `fdtd1d` | — | 18 | 27 | Maxwell en 1D, esquema de Yee. |
