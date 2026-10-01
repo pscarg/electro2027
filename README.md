@@ -25,6 +25,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 10 | Clase 10 — Separación de variables en cartesianas y cilíndricas | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/10_cartesianas_cilindricas.ipynb) |
 | 11 | Clase 11 — Coordenadas esféricas y polinomios de Legendre | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/11_legendre.ipynb) |
 | 12 | Clase 12 — Corrientes, la ley de Biot–Savart y la fuerza de Lorentz | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/12_biot_savart.ipynb) |
+| 13 | Clase 13 — La ley de Ampère y el potencial vector | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/13_ampere_potencial_vector.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
