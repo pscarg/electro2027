@@ -28,6 +28,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 13 | Clase 13 — La ley de Ampère y el potencial vector | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/13_ampere_potencial_vector.ipynb) |
 | 14 | Clase 14 — El dipolo magnético y el movimiento de cargas en campos | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/14_dipolos_movimiento.ipynb) |
 | 15 | Clase 15 — Corriente en los materiales: Ohm, Drude, Joule y la fuerza electromotriz | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/15_ohm_drude.ipynb) |
+| 16 | Clase 16 — La ley de Faraday | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/16_faraday.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
