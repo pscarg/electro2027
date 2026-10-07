@@ -4,7 +4,7 @@
 # **Objetivos**
 # - Comparar la serie de Fourier de una caja con una tapa a $V_0$ con la relajación de la Clase 7, y ver cómo los **detalles del borde se borran exponencialmente**.
 # - Comprobar con la serie doble el resultado sin cuentas de las notas: el centro de un cubo con una cara a $V_0$ está a $V_0/6$.
-# - Medir cómo se comporta el campo cerca de un **rincón** y de una **arista**: $|\mathbf E|\propto\rho^{\pi/\beta-1}$.
+# - Medir cómo se comporta el campo cerca de un **rincón** y de una **arista**: $|\mathbf E|\propto s^{\pi/\beta-1}$.
 # - Conocer la función de Bessel $J_0$ y resolver un **cilindro con tapa**.
 #
 # **Material relacionado:** notas de la Clase 10. Guía 4: problemas 6 y 7.
@@ -97,8 +97,8 @@ def relajar(phi, fijo, rho=None, h=1.0, omega=1.0, tol=1e-8, max_pasos=100000, c
 # %% [markdown]
 # ## Experimento 1 ★ — Una caja con una tapa a potencial
 #
-# Una caja bidimensional de ancho $a=1$ y altura $b$, con las paredes y el fondo a tierra y la tapa $y=b$ a potencial $V(x)$. La separación de variables da
-# $$\phi=\sum_n b_n\sin\frac{n\pi x}{a}\,\frac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)},\qquad b_n=\frac2a\int_0^aV(x)\sin\frac{n\pi x}{a}\,dx .$$
+# Una caja bidimensional de ancho $a=1$ y altura $b$, con las paredes y el fondo a tierra y la tapa $y=b$ a potencial $f(x)$. La separación de variables da
+# $$\phi=\sum_n b_n\sin\frac{n\pi x}{a}\,\frac{\sinh(n\pi y/a)}{\sinh(n\pi b/a)},\qquad b_n=\frac2a\int_0^af(x)\sin\frac{n\pi x}{a}\,dx .$$
 # Para una tapa uniforme, $b_n=4V_0/n\pi$ con $n$ impar. Comparamos con la relajación, que no sabe nada de senos.
 #
 # ### Predecí
@@ -192,7 +192,7 @@ verificar("centro del cubo = V₀/6", centro_cubo(41), 1 / 6, tol=1e-6)
 #
 # ## Experimento 3 — Rincones, aristas y un cilindro
 #
-# Un recinto cuadrado a potencial $V_0$ contiene un conductor a tierra que ocupa el cuadrante $x<0$, $y<0$. La región con campo tiene una **arista saliente** del conductor en el origen ($\beta=3\pi/2$) y **rincones entrantes** en las esquinas del recinto ($\beta=\pi/2$). Según las notas, cerca de un vértice $\phi-\phi_{\rm vértice}\propto\rho^{\pi/\beta}$ y $|\mathbf E|\propto\rho^{\pi/\beta-1}$.
+# Un recinto cuadrado a potencial $V_0$ contiene un conductor a tierra que ocupa el cuadrante $x<0$, $y<0$. La región con campo tiene una **arista saliente** del conductor en el origen ($\beta=3\pi/2$) y **rincones entrantes** en las esquinas del recinto ($\beta=\pi/2$). Según las notas, cerca de un vértice $\phi-\phi_{\rm vértice}\propto s^{\pi/\beta}$ y $|\mathbf E|\propto s^{\pi/\beta-1}$.
 #
 # ### Predecí
 # ¿Dónde es más intenso el campo: en la arista del conductor o en los rincones del recinto?
@@ -219,15 +219,15 @@ arista = phi[i0 + k, i0 + k]                       # sobre la bisectriz de la re
 rincon = 1 - phi[N - 1 - k, N - 1 - k]             # desde la esquina (1, 1) del recinto
 axs[1].loglog(rho, arista, "o", ms=3, color=COLORES[1], label="arista (β = 3π/2): φ")
 axs[1].loglog(rho, rincon, "s", ms=3, color=COLORES[0], label="rincón (β = π/2): V₀ − φ")
-axs[1].loglog(rho, 0.9 * rho**(2 / 3), "k--", lw=1, label="ρ^{2/3}"); axs[1].loglog(rho, 2 * rho**2, "k:", lw=1, label="ρ²")
-axs[1].set(xlabel="distancia ρ al vértice", title="potencial cerca de los vértices"); axs[1].legend(fontsize=9)
+axs[1].loglog(rho, 0.9 * rho**(2 / 3), "k--", lw=1, label="s^{2/3}"); axs[1].loglog(rho, 2 * rho**2, "k:", lw=1, label="s²")
+axs[1].set(xlabel="distancia s al vértice", title="potencial cerca de los vértices"); axs[1].legend(fontsize=9)
 plt.show()
 
 verificar("exponente cerca de la arista: π/β = 2/3", np.polyfit(np.log(rho[cerca]), np.log(arista[cerca]), 1)[0], 2 / 3, tol=2e-2)
 verificar("exponente cerca del rincón: π/β = 2", np.polyfit(np.log(rho[cerca]), np.log(rincon[cerca]), 1)[0], 2.0, tol=2e-2)
 
 # %% [markdown]
-# Ahora un cilindro conductor a tierra de radio $R=0.5$ en un campo uniforme $E_0=1$. Imponemos en el borde de una caja la solución de las notas, $\phi=-E_0(\rho-R^2/\rho)\cos\varphi$, y dejamos que la relajación encuentre el resto.
+# Ahora un cilindro conductor a tierra de radio $R=0.5$ en un campo uniforme $E_0=1$. Imponemos en el borde de una caja la solución de las notas, $\phi=-E_0(s-R^2/s)\cos\varphi$, y dejamos que la relajación encuentre el resto.
 
 # %%
 N = 201; x = np.linspace(-2, 2, N); h = x[1] - x[0]
@@ -243,16 +243,16 @@ ax.set(aspect="equal", title="cilindro en un campo uniforme: equipotenciales"); 
 verificar("máx |relajación − exacta| (fuera del cilindro)", np.abs(phi_c - exacta)[s > R].max(), 0.0, tol=3e-2)
 i0 = N // 2; j = np.argmax(x > R)                  # primer nodo afuera, sobre el eje x
 E_sup = -(phi_c[j + 1, i0] - phi_c[j, i0]) / h
-print(f"campo cerca de la superficie en φ = 0 (relajación): {E_sup:.3f}   exacto en ρ = R: 2E₀")
+print(f"campo cerca de la superficie en φ = 0 (relajación): {E_sup:.3f}   exacto en s = R: 2E₀")
 
 # %% [markdown]
 # ### ¿Qué pasó?
-# Cerca de la arista saliente $\phi\propto\rho^{2/3}$, así que $|\mathbf E|\propto\rho^{-1/3}$ **diverge**: es la zona brillante del mapa. En los rincones del recinto $V_0-\phi\propto\rho^2$ y $|\mathbf E|\propto\rho$ **se anula**. El cilindro en un campo uniforme concentra el campo en los puntos que miran en la dirección de $\mathbf E_0$, donde llega a $2E_0$ (la grilla escalonada lo subestima un poco).
+# Cerca de la arista saliente $\phi\propto s^{2/3}$, así que $|\mathbf E|\propto s^{-1/3}$ **diverge**: es la zona brillante del mapa. En los rincones del recinto $V_0-\phi\propto s^2$ y $|\mathbf E|\propto s$ **se anula**. El cilindro en un campo uniforme concentra el campo en los puntos que miran en la dirección de $\mathbf E_0$, donde llega a $2E_0$ (la grilla escalonada lo subestima un poco).
 #
 # ## Experimento 4 — La función de Bessel y el cilindro con tapa
 #
 # Primero comprobamos la serie de $J_0$ de las notas y sus ceros. Después resolvemos un cilindro de radio $R=1$ y altura $L$, con la pared y el fondo a tierra y la tapa a $V_0$:
-# $$\phi=\sum_n\frac{2V_0}{x_nJ_1(x_n)}\,J_0\!\left(\frac{x_n\rho}{R}\right)\frac{\sinh(x_nz/R)}{\sinh(x_nL/R)} .$$
+# $$\phi=\sum_n\frac{2V_0}{x_nJ_1(x_n)}\,J_0\!\left(\frac{x_ns}{R}\right)\frac{\sinh(x_nz/R)}{\sinh(x_nL/R)} .$$
 #
 # ### Predecí
 # ¿Cómo decae el potencial a lo largo del eje, lejos de la tapa? ¿Más rápido o más lento que en la caja cuadrada de lado $2R$?
@@ -272,7 +272,7 @@ axs[0].set(xlabel="x", title="J₀ y sus ceros"); axs[0].legend()
 print("ceros de J₀:", np.round(ceros, 4), "   diferencias:", np.round(np.diff(ceros), 4))
 verificar("serie de J₀ en x = 7.3", J0_serie(7.3)[0], j0(7.3), tol=1e-10)
 rr = np.linspace(0, 1, 20001)
-verificar("ortogonalidad ∫ρ J₀(x₁ρ) J₀(x₂ρ) dρ", trapezoid(rr * j0(ceros[0] * rr) * j0(ceros[1] * rr), rr), 0.0, tol=1e-8)
+verificar("ortogonalidad ∫s J₀(x₁s) J₀(x₂s) ds", trapezoid(rr * j0(ceros[0] * rr) * j0(ceros[1] * rr), rr), 0.0, tol=1e-8)
 
 # cilindro con tapa
 L = 2.0; xn = jn_zeros(0, 200); An = 2 / (xn * j1(xn))
@@ -287,7 +287,7 @@ Rg, Zg = np.meshgrid(np.linspace(0, 1, 80), np.linspace(0, L, 160), indexing="ij
 ph = cilindro(Rg, Zg)
 im = axs[1].contourf(np.concatenate([-Rg[::-1], Rg]), np.concatenate([Zg[::-1], Zg]), np.concatenate([ph[::-1], ph]),
                      levels=np.linspace(0, 1, 21), cmap="viridis")
-axs[1].set(aspect="equal", xlabel="ρ", ylabel="z", title="cilindro con tapa a V₀ (corte)"); axs[1].grid(False)
+axs[1].set(aspect="equal", xlabel="s", ylabel="z", title="cilindro con tapa a V₀ (corte)"); axs[1].grid(False)
 fig.colorbar(im, ax=axs[1]); plt.show()
 
 zz = np.linspace(1.5, 3.0, 50)                              # cilindro alto (L = 5), lejos de la tapa y del fondo
@@ -297,7 +297,7 @@ verificar("en la tapa, a media distancia del eje: φ = V₀", cilindro(np.array(
 
 # %% [markdown]
 # ### ¿Qué pasó?
-# La serie de las notas reproduce $J_0$, sus ceros se espacian cada vez más cerca de $\pi$, y las $J_0(x_n\rho)$ son ortogonales con peso $\rho$. En el cilindro, lejos de la tapa, el potencial decae como $e^{-2.405\,(L-z)/R}$. Una caja cuadrada de lado $2R$ daría $\gamma_{11}=\pi\sqrt2/2R=2.22/R$: el cilindro, con la misma "anchura", apantalla un poco más.
+# La serie de las notas reproduce $J_0$, sus ceros se espacian cada vez más cerca de $\pi$, y las $J_0(x_ns)$ son ortogonales con peso $s$. En el cilindro, lejos de la tapa, el potencial decae como $e^{-2.405\,(L-z)/R}$. Una caja cuadrada de lado $2R$ daría $\gamma_{11}=\pi\sqrt2/2R=2.22/R$: el cilindro, con la misma "anchura", apantalla un poco más.
 #
 # ## Explorá
 # 1. **Guía 4, P6.** Escribí la densidad de un peine de hilos como una serie de Fourier en $x$, usá el resultado de la lámina sinusoidal de las notas para cada modo, y compará la suma con la suma directa de los potenciales logarítmicos de muchos hilos.

@@ -4,7 +4,7 @@
 # **Objetivos**
 # - Comparar la respuesta a un destello de un punto, de una recta y de un plano, y ver de dónde sale la estela en dos y en una dimensión (principio de Huygens).
 # - Descomponer un pulso en frecuencias: comprobar el teorema de Parseval y la relación entre la duración y el ancho de banda.
-# - Ver cómo la suma de modos $e^{ikR}/R$ arma un pulso retardado (y uno adelantado con $e^{-ikR}/R$).
+# - Ver cómo la suma de modos $e^{ik\mathcal R}/\mathcal R$ arma un pulso retardado (y uno adelantado con $e^{-ik\mathcal R}/\mathcal R$).
 # - Medir cuándo vale la aproximación cuasiestática.
 #
 # **Material relacionado:** notas de la Clase 21. Guía 8: problema 6. Guía 9: problemas 1 y 2.
@@ -64,10 +64,10 @@ from matplotlib import animation
 #
 # Las notas (sección 4) dan la respuesta a un destello $\delta(t)$, con $c=1$:
 # - en un punto (tres dimensiones), $\psi_3=\delta(t-r)/r$: una cáscara esférica que se aleja;
-# - a lo largo de una recta (dos dimensiones), $\psi_2=2\,\Theta(t-\rho)/\sqrt{t^2-\rho^2}$;
+# - a lo largo de una recta (dos dimensiones), $\psi_2=2\,\Theta(t-s)/\sqrt{t^2-s^2}$;
 # - sobre un plano (una dimensión), $\psi_1=2\pi\,\Theta(t-|x|)$.
 #
-# Acá el destello es una gaussiana angosta de área 1, $s(t)=e^{-t^2/2\tau^2}/(\sqrt{2\pi}\,\tau)$, y la respuesta del punto es $s(t-r)/r$. Las de la recta y del plano **no** usan las fórmulas: suman las respuestas de muchos destellos puntuales, uno por cada elemento de la recta o del plano, como la integral de las notas. Después las comparamos con las fórmulas.
+# Acá el destello es una gaussiana angosta de área 1, $\mathcal S(t)=e^{-t^2/2\tau^2}/(\sqrt{2\pi}\,\tau)$, y la respuesta del punto es $\mathcal S(t-r)/r$. Las de la recta y del plano **no** usan las fórmulas: suman las respuestas de muchos destellos puntuales, uno por cada elemento de la recta o del plano, como la integral de las notas. Después las comparamos con las fórmulas.
 #
 # ### Predecí
 # A distancia 2 de la fuente, ¿cómo se ve el destello en cada caso? ¿Cuándo empieza la señal y cuándo se apaga?
@@ -78,7 +78,7 @@ def destello(t, tau):
     return np.exp(-t**2 / (2 * tau**2)) / (np.sqrt(2 * np.pi) * tau)
 
 def respuesta_recta(rho, ts, tau, L=12.0, dz=1e-3):
-    """Suma de destellos puntuales s(t − R)/R dz' a lo largo del eje z (|z'| < L)."""
+    """Suma de destellos puntuales 𝒮(t − 𝓡)/𝓡 dz' a lo largo del eje z (|z'| < L)."""
     z = np.arange(-L, L + dz / 2, dz); R = np.sqrt(rho**2 + z**2)
     return np.array([np.sum(destello(t - R, tau) / R) * dz for t in np.atleast_1d(ts)])
 
@@ -95,10 +95,10 @@ p1 = respuesta_plano(d, ts, tau)
 
 fig, axs = plt.subplots(1, 3, figsize=(13, 3.8))
 axs[0].plot(ts, p3, color=COLORES[0])
-axs[0].set(title="punto (3D): ψ = s(t − r)/r", xlabel="t", ylabel="ψ a distancia 2")
+axs[0].set(title=r"punto (3D): $\psi=\mathcal{S}(t-r)/r$", xlabel="t", ylabel="ψ a distancia 2")
 tt = ts[ts > d + 0.02]
 axs[1].plot(ts, p2, color=COLORES[1], label="suma de destellos")
-axs[1].plot(tt, 2 / np.sqrt(tt**2 - d**2), "k--", lw=1, label="2/√(t² − ρ²)")
+axs[1].plot(tt, 2 / np.sqrt(tt**2 - d**2), "k--", lw=1, label="2/√(t² − s²)")
 axs[1].set(title="recta (2D)", xlabel="t", ylim=(0, 2.5)); axs[1].legend(fontsize=9)
 axs[2].plot(ts, p1, color=COLORES[2], label="suma de destellos")
 axs[2].plot(ts, 2 * np.pi * (ts > d), "k--", lw=1, label="2π Θ(t − |x|)")
@@ -109,13 +109,13 @@ plt.tight_layout(); plt.show()
 guardar(fig, "nb21_huygens")
 
 i4 = np.argmin(np.abs(ts - 4.0))
-verificar("recta: la suma de destellos da 2/√(t² − ρ²) (t = 4)", p2[i4], 2 / np.sqrt(16 - d**2), tol=1e-3)
+verificar("recta: la suma de destellos da 2/√(t² − s²) (t = 4)", p2[i4], 2 / np.sqrt(16 - d**2), tol=1e-3)
 verificar("plano: la suma de destellos da 2π (t = 4)", p1[i4], 2 * np.pi, tol=1e-4)
 verificar("punto: el área del pulso es 1/r", trapezoid(p3, ts), 1 / d, tol=1e-6)
 verificar("punto: después del frente no queda nada (t = 4)", p3[i4], 0.0, tol=1e-12)
 
 # %% [markdown]
-# **¿De dónde sale la estela?** Reemplazamos la recta por fuentes puntuales separadas una distancia $h$ (cada una con peso $h$). Cada una manda un destello nítido, que llega a distancia $\rho$ en el instante $\sqrt{\rho^2+z_n'^2}$ con área $h/\sqrt{\rho^2+z_n'^2}$. La curva gruesa es el promedio de los picos en la ventana $[t-h,\,t]$. Mové $h$.
+# **¿De dónde sale la estela?** Reemplazamos la recta por fuentes puntuales separadas una distancia $h$ (cada una con peso $h$). Cada una manda un destello nítido, que llega a distancia $s$ en el instante $\sqrt{s^2+z_n'^2}$ con área $h/\sqrt{s^2+z_n'^2}$. La curva gruesa es el promedio de los picos en la ventana $[t-h,\,t]$. Mové $h$.
 
 # %%
 def estela(h=0.5):
@@ -264,12 +264,12 @@ verificar("en la superposición toda la energía es eléctrica: ∫B² = 0 en t 
 #
 # Con los dos pulsos, la energía total no cambia, aunque $E_y$ se duplica: en ese instante $B_z=0$, y la energía, que era mitad eléctrica y mitad magnética, está toda en el campo eléctrico. El término cruzado $2fg$ suma en $E^2$ y resta en $B^2$: las dos partes no interfieren en la energía (sección 1.3 de las notas).
 #
-# ## Experimento 3 — De las frecuencias al tiempo: $e^{ikR}/R$
+# ## Experimento 3 — De las frecuencias al tiempo: $e^{ik\mathcal R}/\mathcal R$
 #
-# Cada frecuencia de una fuente produce, a distancia $R$, la amplitud $\tilde s(\omega)\,e^{ikR}/R$ con $k=\omega/c$ (la función de Green de Helmholtz de las notas). Sumamos las frecuencias de un destello gaussiano de área 1, $\tilde s(\omega)=e^{-\omega^2\tau^2/2}$, con $\int\frac{d\omega}{2\pi}\,e^{-i\omega t}$. Las notas predicen $s(t-R/c)/R$.
+# Cada frecuencia de una fuente produce, a distancia $\mathcal R$, la amplitud $\tilde{\mathcal S}(\omega)\,e^{ik\mathcal R}/\mathcal R$ con $k=\omega/c$ (la función de Green de Helmholtz de las notas). Sumamos las frecuencias de un destello gaussiano de área 1, $\tilde{\mathcal S}(\omega)=e^{-\omega^2\tau^2/2}$, con $\int\frac{d\omega}{2\pi}\,e^{-i\omega t}$. Las notas predicen $\mathcal S(t-\mathcal \mathcal R/c)/\mathcal \mathcal R$.
 #
 # ### Predecí
-# Si cada frecuencia se multiplica por $e^{ikR}/R$, ¿qué le pasa al pulso? ¿Y con $e^{-ikR}/R$, que también resuelve la ecuación de Helmholtz?
+# Si cada frecuencia se multiplica por $e^{ik\mathcal R}/\mathcal R$, ¿qué le pasa al pulso? ¿Y con $e^{-ik\mathcal R}/\mathcal R$, que también resuelve la ecuación de Helmholtz?
 
 # %%
 R0, tau_h = 3.0, 0.3
@@ -288,29 +288,29 @@ fig, axs = plt.subplots(1, 2, figsize=(12, 3.8))
 for wn, col in zip((1.0, 2.5, 4.0), RAMPA[1:]):
     axs[0].plot(th, np.exp(-wn**2 * tau_h**2 / 2) * np.cos(wn * (th - R0)) / R0, color=col, lw=1.2, label=f"ω = {wn:g}")
 axs[0].axvline(R0, color="0.5", lw=0.8)
-axs[0].set(xlabel="t", title="algunos modos: todos en fase en t = R/c"); axs[0].legend(fontsize=9)
-axs[1].plot(th, ret, color=COLORES[0], label=r"con $e^{ikR}/R$: retardado")
-axs[1].plot(th, adv, color=COLORES[1], label=r"con $e^{-ikR}/R$: adelantado")
-axs[1].plot(th, destello(th, tau_h), color="0.6", lw=1, label="la fuente, s(t)")
-axs[1].set(xlabel="t", title=f"suma de todos los modos, R = {R0:g}"); axs[1].legend(fontsize=9)
+axs[0].set(xlabel="t", title=r"algunos modos: todos en fase en $t=\mathcal{R}/c$"); axs[0].legend(fontsize=9)
+axs[1].plot(th, ret, color=COLORES[0], label=r"con $e^{ik\mathcal{R}}/\mathcal{R}$: retardado")
+axs[1].plot(th, adv, color=COLORES[1], label=r"con $e^{-ik\mathcal{R}}/\mathcal{R}$: adelantado")
+axs[1].plot(th, destello(th, tau_h), color="0.6", lw=1, label=r"la fuente, $\mathcal{S}(t)$")
+axs[1].set(xlabel="t", title=rf"suma de todos los modos, $\mathcal{{R}}={R0:g}$"); axs[1].legend(fontsize=9)
 plt.show()
 
-verificar("suma de modos con e^{ikR}/R = s(t − R/c)/R", np.max(np.abs(ret - destello(th - R0, tau_h) / R0)), 0.0, tol=1e-10)
-verificar("suma de modos con e^{−ikR}/R = s(t + R/c)/R", np.max(np.abs(adv - destello(th + R0, tau_h) / R0)), 0.0, tol=1e-10)
+verificar("suma de modos con e^{ik𝓡}/𝓡 = 𝒮(t − 𝓡/c)/𝓡", np.max(np.abs(ret - destello(th - R0, tau_h) / R0)), 0.0, tol=1e-10)
+verificar("suma de modos con e^{−ik𝓡}/𝓡 = 𝒮(t + 𝓡/c)/𝓡", np.max(np.abs(adv - destello(th + R0, tau_h) / R0)), 0.0, tol=1e-10)
 
-# Helmholtz: laplaciano cartesiano (diferencias finitas) de G = e^{ikR}/R, y flujo de ∇G por una esfera chica
+# Helmholtz: laplaciano cartesiano (diferencias finitas) de G = e^{ik𝓡}/𝓡, y flujo de ∇G por una esfera chica
 k, h = 2.0, 1e-3
 G = lambda x, y, z: np.exp(1j * k * np.sqrt(x**2 + y**2 + z**2)) / np.sqrt(x**2 + y**2 + z**2)
 p = np.array([0.6, -0.3, 0.5])
 lap = sum(G(*(p + h * e)) + G(*(p - h * e)) - 2 * G(*p) for e in np.eye(3)) / h**2
-verificar("(∇² + k²) e^{ikR}/R = 0 fuera del origen", abs(lap + k**2 * G(*p)) / abs(k**2 * G(*p)), 0.0, tol=1e-5)
+verificar("(∇² + k²) e^{ik𝓡}/𝓡 = 0 fuera del origen", abs(lap + k**2 * G(*p)) / abs(k**2 * G(*p)), 0.0, tol=1e-5)
 r, hr = 1e-3, 1e-6
 flujo = 4 * np.pi * r**2 * (G(r + hr, 0, 0) - G(r - hr, 0, 0)) / (2 * hr)
 verificar("flujo de ∇G por una esfera de radio 10⁻³ = −4π (la delta)", flujo.real, -4 * np.pi, tol=1e-4)
 
 # %% [markdown]
 # ### ¿Qué pasó?
-# Cada modo, a distancia $R$, está corrido en fase en $kR=\omega R/c$: eso es un retardo $R/c$ **igual para todas las frecuencias**, así que todo el pulso llega $R/c$ más tarde, con la misma forma y dividido por $R$. Es la cuenta de la sección 3.1 de las notas: $e^{ikR}$ es un retardo. Con $e^{-ikR}$ el pulso aparece $R/c$ **antes** de que la fuente lo emita: es matemáticamente correcto, pero describe una onda que viene desde el infinito y se concentra en la fuente; la descartamos porque en ella el efecto precede a la causa. Al final, el laplaciano numérico confirma que $e^{ikR}/R$ cumple la ecuación de Helmholtz fuera del origen, y el flujo de su gradiente, $-4\pi$, es la delta.
+# Cada modo, a distancia $\mathcal R$, está corrido en fase en $k\mathcal R=\omega \mathcal R/c$: eso es un retardo $\mathcal R/c$ **igual para todas las frecuencias**, así que todo el pulso llega $\mathcal R/c$ más tarde, con la misma forma y dividido por $\mathcal R$. Es la cuenta de la sección 3.1 de las notas: $e^{ik\mathcal R}$ es un retardo. Con $e^{-ik\mathcal R}$ el pulso aparece $\mathcal R/c$ **antes** de que la fuente lo emita: es matemáticamente correcto, pero describe una onda que viene desde el infinito y se concentra en la fuente; la descartamos porque en ella el efecto precede a la causa. Al final, el laplaciano numérico confirma que $e^{ik\mathcal R}/\mathcal R$ cumple la ecuación de Helmholtz fuera del origen, y el flujo de su gradiente, $-4\pi$, es la delta.
 #
 # ## Experimento 4 — ¿Cuándo vale lo cuasiestático?
 #
@@ -366,7 +366,7 @@ verificar("φ_ret − φ_inst = (q̈/2c²)(R₊ − R₋) − (q⃛/6c³)(R₊²
 #
 # ## Explorá
 #
-# 1. **Guía 9, P1.** `potencial_hilo(I, s, t)`, en la celda de abajo, calcula $A_z$ de un hilo infinito sobre el eje $z$ con una corriente $I(t)$ que se enciende en $t=0$, sumando las contribuciones retardadas $\frac1c I(t-R/c)/R\,dz'$ de los puntos del hilo cuya señal ya llegó. Usala con $I(t)=I_0\,\Theta(t)$ y comparala con tu $A_z$; derivá numéricamente (`np.gradient`) para obtener $B_\varphi=-\partial_sA_z$ y $E_z=-\frac1c\partial_tA_z$, graficalos para varios $t$ (inciso b) y mirá a qué tienden para $t\to\infty$ (inciso c).
+# 1. **Guía 9, P1.** `potencial_hilo(I, s, t)`, en la celda de abajo, calcula $A_z$ de un hilo infinito sobre el eje $z$ con una corriente $I(t)$ que se enciende en $t=0$, sumando las contribuciones retardadas $\frac1c I(t-\mathcal R/c)/\mathcal R\,dz'$ de los puntos del hilo cuya señal ya llegó. Usala con $I(t)=I_0\,\Theta(t)$ y comparala con tu $A_z$; derivá numéricamente (`np.gradient`) para obtener $B_\varphi=-\partial_sA_z$ y $E_z=-\frac1c\partial_tA_z$, graficalos para varios $t$ (inciso b) y mirá a qué tienden para $t\to\infty$ (inciso c).
 # 2. **Guía 9, P2.** `potencial_lamina(K, x, t, x0)` da el $A_y$ de una lámina en $x=x_0$ con corriente superficial $K(t)\hat{\mathbf y}$ (sección 4 de las notas). Superponé dos láminas con corrientes opuestas (en el problema son los planos $z=\pm d$; acá usamos $x$), calculá los campos entre ellas y afuera, y con ellos el flujo de energía.
 # 3. **Guía 8, P6.** `paquete_1d(E0, k, x, t)` arma en una dimensión $E_y=\operatorname{Re}\int\frac{dk}{2\pi}E_0(k)\,e^{i(kx-c|k|t)}$ y $B_z$ (cada modo con $\mathbf B=\hat{\mathbf k}\times\mathbf E$). Elegí un $E_0(k)$ con partes en $k>0$ y en $k<0$, mirá cómo cambian por separado $\int E_y^2dx$ e $\int B_z^2dx$, y comparalos con la energía total y con $\frac{1}{8\pi}\int\frac{dk}{2\pi}|E_0(k)|^2$, la versión unidimensional del resultado del problema.
 # 4. **Duración y ancho de banda.** Con `espectro` y `ancho_rms`, repetí el Experimento 2 con otra envolvente, por ejemplo $1/\cosh(t/\tau)$: ¿el producto $\Delta t\,\Delta\omega$ depende de $\tau$? ¿Es mayor o menor que $\frac12$?
