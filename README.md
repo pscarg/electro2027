@@ -34,6 +34,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 19 | Clase 19 — Leyes de conservación: energía, momento y momento angular del campo | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/19_poynting.ipynb) |
 | 20 | Clase 20 — Ondas planas: polarización, energía, momento y presión de radiación | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/20_ondas_planas.ipynb) |
 | 21 | Clase 21 — Paquetes de ondas, la función de Green de ondas y los potenciales retardados | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/21_retardados.ipynb) |
+| 22 | Clase 22 — Radiación: zonas, dipolo eléctrico, Larmor y el átomo clásico | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/22_radiacion_dipolar.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
