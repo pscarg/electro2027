@@ -20,6 +20,7 @@ Los notebooks no importan módulos compartidos, porque cada uno debe funcionar s
 | `conduccion` | v1 | 15 | 25 (dieléctricos, con ε en lugar de σ) | `resolver_conduccion`: ∇·(κ∇φ) = −f con `spsolve`, κ en las caras = media armónica, bordes no fijos aislantes; `divergencia_flujo`: ∇·(κ∇φ). |
 | `biot_savart` | v1 | 12 | 13, 14, 17, 18, 26 | `campo_poligonal`: **B** exacto de una poligonal (fórmula de cada segmento), por bloques; `espira`, `campo_espiras` (solenoide como pila de espiras). |
 | `potencial_vector` | v1 | 13 | 14, 17 | `potencial_poligonal`: **A** exacto (calibre de Coulomb) de una poligonal, con ln[(R₁+R₂+ℓ)/(R₁+R₂−ℓ)] por segmento. |
-| `boris` | v1 | 14 | 29 (versión relativista) | `boris`: integrador de Boris (no relativista) de M dv/dt = q(E + v×B/c); con E = 0 conserva \|v\| exactamente. |
+| `boris` | v1 | 14 | 29 (comparación con Newton) | `boris`: integrador de Boris (no relativista) de M dv/dt = q(E + v×B/c); con E = 0 conserva \|v\| exactamente. |
+| `boris_rel` | v1 | 29 | — | `boris_rel`: la versión relativista, con u = γv: medio impulso eléctrico, rotación con el γ de ese instante, medio impulso; con E = 0 conserva \|u\| (y la energía) exactamente. |
 | `fdtd1d` | v1 | 18 | 19, 20 | `yee1d`: Maxwell en 1D (E_y en nodos, B_z en puntos medios y medio paso atrás), esquema de Yee con c = 1, número de Courant S ≤ 1 (exacto con S = 1), fuente J_y opcional, bordes absorbentes de Mur. |
 | `fdtd1d` | v2 | 26 | 27 | `yee1d` de la v1 más un medio: `eps` (permitividad en los nodos) y electrones de Drude con `wp2` (ωp² en los nodos) y `gamma`; la corriente de los electrones cumple dJe/dt = −γ Je + (ωp²/4π) E. Con plasma, estable si S² + (ωp Δt/2)² ≤ 1. Sin medio coincide con la v1. |

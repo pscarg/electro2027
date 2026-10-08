@@ -41,6 +41,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 26 | Clase 26 — Medios magnéticos y modelos de medios: ε(ω), plasma y energía | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/26_medios_modelos.ipynb) |
 | 27 | Clase 27 — Ondas en medios: reflexión, refracción, conductores y dispersión | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/27_ondas_medios.ipynb) |
 | 28 | Clase 28 — Relatividad especial: Lorentz, Minkowski y causalidad | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/28_relatividad.ipynb) |
+| 29 | Clase 29 — Dinámica relativista: cuadrimomento, fuerza y principio de acción | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/29_dinamica_relativista.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
