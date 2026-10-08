@@ -15,7 +15,7 @@ Los notebooks no importan módulos compartidos, porque cada uno debe funcionar s
 | Herramienta | Versión | Creada en | Usada en | Qué hace |
 |---|---|---|---|---|
 | `configuracion` | v1 | 01 | todos | Importaciones, estilo de gráficos, `deslizador`, `interactuar`, `verificar`, `guardar`. |
-| `relajacion` | v1 | 07 | 08, 10, 15, 25 | `relajar`: Laplace/Poisson en 2D por Gauss–Seidel rojo-negro (sobrerrelajación con `omega`), nodos fijos de Dirichlet, historia de la energía; `energia_discreta`: $U_h$. El coeficiente variable está en la herramienta `conduccion` (NB15). |
+| `relajacion` | v1 | 07 | 08, 10, 15 | `relajar`: Laplace/Poisson en 2D por Gauss–Seidel rojo-negro (sobrerrelajación con `omega`), nodos fijos de Dirichlet, historia de la energía; `energia_discreta`: $U_h$. El coeficiente variable está en la herramienta `conduccion` (NB15). |
 | `momentos_axial` | v1 | 05 | 08 (imágenes frente a numérico) | Método de momentos para conductores con simetría de revolución: σ, capacidad, matriz C. |
 | `conduccion` | v1 | 15 | 25 (dieléctricos, con ε en lugar de σ) | `resolver_conduccion`: ∇·(κ∇φ) = −f con `spsolve`, κ en las caras = media armónica, bordes no fijos aislantes; `divergencia_flujo`: ∇·(κ∇φ). |
 | `biot_savart` | v1 | 12 | 13, 14, 17, 18, 26 | `campo_poligonal`: **B** exacto de una poligonal (fórmula de cada segmento), por bloques; `espira`, `campo_espiras` (solenoide como pila de espiras). |
