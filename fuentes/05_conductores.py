@@ -6,7 +6,7 @@
 # - Verificar la simetría, los signos y la positividad de la **matriz de capacidades** de dos esferas.
 # - Comprobar que la fuerza calculada por trabajo virtual **a carga constante** y **a potencial constante** es la misma, y cuánta energía aporta la batería.
 #
-# **Material relacionado:** notas de la Clase 5. Guía 2: problema 7. Guía 3: problemas 1 a 4.
+# **Material relacionado:** notas de la Clase 5. Guía 3: problemas 1 a 5.
 #
 # **El método.** Dividimos la superficie del conductor en anillos (paneles) con densidad $\sigma_k$ uniforme en cada uno, y exigimos que el potencial en el centro de cada panel sea el del conductor. Queda un sistema lineal $A\,\sigma = \phi$, donde $A_{ik}$ es el potencial en el panel $i$ producido por el panel $k$ con densidad 1. Se llama **método de momentos**. Cada anillo produce el potencial $\frac{2q}{\pi}\frac{K(m)}{D}$ deducido en la Clase 3.
 

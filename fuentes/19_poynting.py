@@ -7,7 +7,7 @@
 # - Calcular la fuerza entre dos hilos con el tensor de tensiones, y el momento del campo de una carga que se mueve.
 # - Ver el momento angular del campo pasar a la materia, y calcular el de una carga y un monopolo.
 #
-# **Material relacionado:** notas de la Clase 19. Guía 7: problemas 4, 5 y 2(b).
+# **Material relacionado:** notas de la Clase 19. Guía 7: problemas 3, 4 y 1(b).
 #
 # **Unidades.** Gaussianas, adimensionales, con $c=1$.
 
@@ -310,7 +310,7 @@ for dd in (0.5, 2.0):
 #
 # ## Explorá
 #
-# 1. **Guía 7, P4.** Como en el Experimento 3, elegí una superficie que encierre un pedazo de la pared de un solenoide y calculá la fuerza con $T_{ij}$. ¿Por qué no hace falta integrar adentro del solenoide?
-# 2. **Guía 7, P5.** Escribí, como en el Experimento 3, la integral del momento del campo $\frac{1}{4\pi c}\int\mathbf E\times\mathbf B$ para un capacitor de placas en un campo $\mathbf B$ uniforme, y compará el impulso que reciben las placas en las dos maneras de apagar el sistema.
+# 1. **Guía 7, P3.** Como en el Experimento 3, elegí una superficie que encierre un pedazo de la pared de un solenoide y calculá la fuerza con $T_{ij}$. ¿Por qué no hace falta integrar adentro del solenoide?
+# 2. **Guía 7, P4.** Escribí, como en el Experimento 3, la integral del momento del campo $\frac{1}{4\pi c}\int\mathbf E\times\mathbf B$ para un capacitor de placas en un campo $\mathbf B$ uniforme, y compará el impulso que reciben las placas en las dos maneras de apagar el sistema.
 # 3. En el Experimento 1, dale también resistencia al conductor externo (su potencial baja linealmente desde $0$ en $z=L$ hasta $-V_1$ en $z=0$). Escribí el potencial entre los conductores como combinación de $\ln(b/s)$ y $\ln(s/a)$, y dibujá las nuevas líneas de energía: ¿entra energía también al conductor externo?
 # 4. En el Experimento 2, reemplazá el borde absorbente de la derecha por un espejo ($E_y=0$ en el último nodo) y calculá la fuerza por unidad de área sobre el espejo, $-T_{xx}=\frac{E^2+B^2}{8\pi}$, mientras refleja el pulso. Compará el impulso total con el doble del momento del pulso, $2U/c$: es la presión de radiación de la Clase 20.

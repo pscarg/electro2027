@@ -7,7 +7,7 @@
 # - Comprobar el término de contacto: el campo promedio dentro de una esfera que contiene una espira es $2\mathbf m/R^3$.
 # - Calcular el torque y la fuerza sobre una espira en un campo externo, y compararlos con $\mathbf m\times\mathbf B$ y $\nabla(\mathbf m\cdot\mathbf B)$.
 #
-# **Material relacionado:** notas de la Clase 14. Guía 5: problemas 7 y 9. Guía 7: problema 1.
+# **Material relacionado:** notas de la Clase 14. Guía 5: problemas 7, 9 y 10.
 #
 # **Unidades.** Gaussianas, adimensionales: $c=1$ en el código, $q/M=1$, longitudes en unidades del radio de la espira.
 
@@ -336,5 +336,5 @@ verificar("lejos (z = 30): F_z = −6 m₁m₂/z⁴ (dos dipolos coaxiales)", F[
 # ## Explorá
 # 1. **Guía 5, P7.** Armá el disco que gira como espiras concéntricas con $dI=\sigma\omega s\,ds$, calculá su momento magnético y el campo en el eje, y compará con tus resultados (incluido el límite lejano).
 # 2. **Guía 5, P9.** Calculá con `fuerza_y_torque` la fuerza sobre una espira cuadrada junto a un hilo largo, y compará con $\nabla(\mathbf m\cdot\mathbf B)$ cuando el lado es mucho menor que la distancia.
-# 3. **Guía 7, P1.** Compará la trayectoria de Boris desde el reposo en campos cruzados con la solución analítica que encontraste. ¿Qué curva es? ¿Qué pasa si $E>B$?
+# 3. **Guía 5, P10.** Compará la trayectoria de Boris desde el reposo en campos cruzados con la solución analítica que encontraste. ¿Qué curva es? ¿Qué pasa si $E>B$?
 # 4. **El cono de pérdida.** Barré el ángulo inicial en la botella y encontrá el ángulo crítico por debajo del cual la carga escapa. Compará con $\sin^2\alpha_c=B_0/B_{\max}$.
