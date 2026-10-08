@@ -224,9 +224,9 @@ verificar("⟨P⟩ de una carga que oscila = q²d²ω⁴/3c³", trapezoid(P_t, t
 #
 # ## Experimento 4 — El átomo clásico se cae
 #
-# Un electrón en una órbita circular alrededor de un protón radía con la potencia de Larmor, $P=\frac{2e^2a^2}{3c^3}=m\tau_ea^2$ con $\tau_e=\frac{2e^2}{3mc^3}$, y la energía $U=-\frac{e^2}{2r}$ baja. Las notas (sección 7) dan, si la órbita se achica despacio, $r^3=r_0^3-6\tau_e\frac{e^2}{m}t$.
+# Un electrón en una órbita circular alrededor de un protón radía con la potencia de Larmor, $P=\frac{2e^2a^2}{3c^3}=m_e\tau_ea^2$ con $\tau_e=\frac{2e^2}{3m_ec^3}$, y la energía $U=-\frac{e^2}{2r}$ baja. Las notas (sección 7) dan, si la órbita se achica despacio, $r^3=r_0^3-6\tau_e\frac{e^2}{m_e}t$.
 #
-# Acá simulamos la órbita completa. A la fuerza de Coulomb le sumamos una fuerza de frenado $\mathbf F=m\tau_e\dot{\mathbf a}$: su trabajo en un período es $m\tau_e\int\dot{\mathbf a}\cdot\mathbf v\,dt=m\tau_e[\mathbf a\cdot\mathbf v]-m\tau_e\int a^2dt$, y el primer término se anula en un movimiento periódico, así que en promedio saca del movimiento justo la potencia de Larmor. Como $\tau_e$ es chico, en $\dot{\mathbf a}$ usamos la derivada de la aceleración de Coulomb a lo largo de la trayectoria. Unidades: $e^2/m=1$, $r_0=1$; el $\tau_e$ real ($\sim10^{-7}$ del período) se exagera para ver la espiral.
+# Acá simulamos la órbita completa. A la fuerza de Coulomb le sumamos una fuerza de frenado $\mathbf F=m_e\tau_e\dot{\mathbf a}$: su trabajo en un período es $m_e\tau_e\int\dot{\mathbf a}\cdot\mathbf v\,dt=m_e\tau_e[\mathbf a\cdot\mathbf v]-m_e\tau_e\int a^2dt$, y el primer término se anula en un movimiento periódico, así que en promedio saca del movimiento justo la potencia de Larmor. Como $\tau_e$ es chico, en $\dot{\mathbf a}$ usamos la derivada de la aceleración de Coulomb a lo largo de la trayectoria. Unidades: $e^2/m_e=1$, $r_0=1$; el $\tau_e$ real ($\sim10^{-7}$ del período) se exagera para ver la espiral.
 #
 # ### Predecí
 # Mientras el electrón pierde energía y la órbita se achica, ¿su rapidez aumenta o disminuye?

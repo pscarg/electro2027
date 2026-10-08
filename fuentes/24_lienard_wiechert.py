@@ -178,7 +178,7 @@ Ex, Ey, _ = campos_LW(*P, t, tray)
 Rpx, Rpy = P[0] - xp, P[1]; Rp = np.hypot(Rpx, Rpy); sin2 = (Rpy / Rp)**2
 fac = (1 - v0**2) / (Rp**3 * (1 - v0**2 * sin2)**1.5)
 verificar("adentro: E = q(1−β²) R_p / [R_p³(1−β² sin²ψ)^{3/2}] desde la posición presente", np.hypot(Ex[0] - fac[0] * Rpx[0], Ey[0] - fac[0] * Rpy[0]) / (fac[0] * Rp[0]), 0.0, tol=1e-8)
-# El quiebre para v₀ ≪ c y lejos (cτ ≪ R): E transversal en la cáscara = q a sinθ / c²R (sección 5)
+# El quiebre para v₀ ≪ c y lejos (cτ ≪ R): E transversal en la cáscara = q a sinθ / c²R (sección 4)
 v0c, tauc, tk = 0.02, 0.5, 40.0; trayc = arranque(v0c, tauc)
 Rm = tk - tauc / 2
 Ex, Ey, _ = campos_LW(np.array([0.0]), np.array([Rm]), tk, trayc)

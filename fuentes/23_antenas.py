@@ -62,7 +62,7 @@ OHM_POR_1_SOBRE_C = 29.98      # 1/c (en s/cm) equivale a 29.98 Ω
 # %% [markdown]
 # ## Experimento 1 ★ — El diagrama de una antena según su largo
 #
-# Para una antena recta de largo $d$ según $\hat{\mathbf z}$ con corriente $I(z)e^{-i\omega t}$, las notas (sección 5) dan, en la zona de radiación,
+# Para una antena recta de largo $d$ según $\hat{\mathbf z}$ con corriente $I(z)e^{-i\omega t}$, las notas (sección 4) dan, en la zona de radiación,
 # $$\frac{dP}{d\Omega}=\frac{k^2\sin^2\theta}{8\pi c}\left|F(\theta)\right|^2,\qquad F(\theta)=\int_{-d/2}^{d/2}I(z')\,e^{-ikz'\cos\theta}\,dz' ,$$
 # y la resistencia de radiación $R=2P/I_{\text{alim}}^2$. Para una corriente uniforme, $F=I_0d\,\frac{\sin u}{u}$ con $u=\frac{kd}{2}\cos\theta$. La función `F_antena` calcula $F$ **numéricamente** para cualquier $I(z)$.
 #
@@ -122,7 +122,7 @@ verificar("d = 3λ: el máximo está en θ = 90° (perpendicular a la antena)", 
 #
 # ## Experimento 2 — Un arreglo de antenas en fase
 #
-# $N$ dipolos cortos verticales en $x_n=na$ ($n=0,\ldots,N-1$), alimentados con la misma amplitud y fases $e^{-in\delta}$. En el plano horizontal, en la dirección de azimut $\varphi$, la onda de cada uno llega con la fase extra $e^{-ikx_n\cos\varphi}$ (sección 5 de las notas), y el campo total es el de uno multiplicado por $\sum_ne^{-in\psi}$ con $\psi=ka\cos\varphi+\delta$. Es una suma geométrica:
+# $N$ dipolos cortos verticales en $x_n=na$ ($n=0,\ldots,N-1$), alimentados con la misma amplitud y fases $e^{-in\delta}$. En el plano horizontal, en la dirección de azimut $\varphi$, la onda de cada uno llega con la fase extra $e^{-ikx_n\cos\varphi}$ (sección 4 de las notas), y el campo total es el de uno multiplicado por $\sum_ne^{-in\psi}$ con $\psi=ka\cos\varphi+\delta$. Es una suma geométrica:
 # $$\left|\sum_{n=0}^{N-1}e^{-in\psi}\right|^2=\left|\frac{1-e^{-iN\psi}}{1-e^{-i\psi}}\right|^2=\frac{\sin^2(N\psi/2)}{\sin^2(\psi/2)},$$
 # con máximo $N^2$ en $\psi=0$: el haz apunta a $\cos\varphi_0=-\delta/ka$. **Cambiando las fases se dirige el haz sin mover nada.**
 #
@@ -227,7 +227,7 @@ verificar("oscilador cuadrupolar: ⟨P⟩ = 16q²A⁴ω⁶/15c⁵", np.mean(Pt),
 #
 # ## Experimento 4 — El cielo azul
 #
-# Una molécula en la luz del Sol se polariza, $\mathbf p=\alpha\mathbf E$, y radía como un dipolo: la sección eficaz es $\sigma=\frac{8\pi}{3}k^4\alpha^2$ (sección 6 de las notas). Multiplicamos el espectro del Sol (un cuerpo negro a $5800$ K, en función de la longitud de onda) por $k^4\propto\lambda^{-4}$.
+# Una molécula en la luz del Sol se polariza, $\mathbf p=\alpha\mathbf E$, y radía como un dipolo: la sección eficaz es $\sigma=\frac{8\pi}{3}k^4\alpha^2$ (sección 5 de las notas). Multiplicamos el espectro del Sol (un cuerpo negro a $5800$ K, en función de la longitud de onda) por $k^4\propto\lambda^{-4}$.
 #
 # ### Predecí
 # ¿Dónde queda el máximo del espectro de la luz dispersada? ¿Y cómo está polarizada la luz del cielo a $90^\circ$ del Sol?

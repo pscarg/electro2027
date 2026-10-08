@@ -196,7 +196,7 @@ verificar("E/B = 0.5: la deriva media es cE/B (acotado; la transformación de ca
 #
 # En una dimensión, con un campo uniforme $E_0$ ($\phi=-E_0x$), la acción relativista es (sección 4 de las notas)
 # $$S[x]=\int_0^T\left(-mc^2\sqrt{1-\dot x^2/c^2}+qE_0x\right)dt .$$
-# Tomamos la trayectoria real, el movimiento hiperbólico desde el reposo, que llega a $X=x(T)$, y otra con los mismos extremos: la parábola de Newton, $x=v_0t+\frac12\frac{qE_0}{m}t^2$, con $v_0$ elegida para llegar a $X$ en $T$. A cada una le sumamos $\epsilon\,\eta(t)$, con $\eta=\sin(\pi t/T)$, que se anula en los extremos, y calculamos $S(\epsilon)$.
+# Tomamos la trayectoria real, el movimiento hiperbólico desde el reposo, que llega a $X=x(T)$, y otra con los mismos extremos: la parábola de Newton, $x=v_0t+\frac12\frac{qE_0}{m}t^2$, con $v_0$ elegida para llegar a $X$ en $T$. A cada una le sumamos $\epsilon\,\xi(t)$, con $\xi=\sin(\pi t/T)$, que se anula en los extremos, y calculamos $S(\epsilon)$.
 #
 # ### Predecí
 # ¿Cuál de las dos curvas $S(\epsilon)$ tiene su mínimo en $\epsilon=0$?
@@ -211,14 +211,14 @@ caminos = {
 }
 v0 = (X_fin - 0.5 * T_acc**2) / T_acc
 caminos["Newton, mismos extremos"] = (v0 * t_acc + 0.5 * t_acc**2, v0 + t_acc)
-eta = np.sin(np.pi * t_acc / T_acc); deta = (np.pi / T_acc) * np.cos(np.pi * t_acc / T_acc)
+xi = np.sin(np.pi * t_acc / T_acc); dxi = (np.pi / T_acc) * np.cos(np.pi * t_acc / T_acc)
 
 def accion(x, v):
     return trapezoid(-np.sqrt(1 - v**2) + x, t_acc)
 
 def S_eps(nombre, eps):
     x, v = caminos[nombre]
-    return accion(x + eps * eta, v + eps * deta)
+    return accion(x + eps * xi, v + eps * dxi)
 
 eps = np.linspace(-0.06, 0.06, 121)
 fig, ax = plt.subplots(figsize=(7.5, 4.2))
@@ -236,11 +236,11 @@ verificar("trayectoria real: dS/dε = 0 (la acción es estacionaria)", d1["real 
 print(f"   (para la parábola de Newton, dS/dε = {d1['Newton, mismos extremos']:.2e}: no es estacionaria)")
 x, v = caminos["real (hiperbólico)"]
 d2 = (S_eps("real (hiperbólico)", h) - 2 * S_eps("real (hiperbólico)", 0) + S_eps("real (hiperbólico)", -h)) / h**2
-verificar("d²S/dε² = ∫ mγ³ η̇² dt > 0: es un mínimo", d2, trapezoid((1 - v**2)**-1.5 * deta**2, t_acc), tol=1e-4)
+verificar("d²S/dε² = ∫ mγ³ ξ̇² dt > 0: es un mínimo", d2, trapezoid((1 - v**2)**-1.5 * dxi**2, t_acc), tol=1e-4)
 
 # %% [markdown]
 # ### ¿Qué pasó?
-# Para la trayectoria real, $S(\epsilon)$ tiene un mínimo en $\epsilon=0$: cualquier variación chica que respete los extremos aumenta la acción, en primer orden nada y en segundo orden $\frac12\epsilon^2\int m\gamma^3\dot\eta^2dt$. La parábola de Newton, que resuelve otra ecuación, no es un extremo de esta acción: su $S(\epsilon)$ tiene pendiente en $\epsilon=0$. Las ecuaciones de Euler–Lagrange de esta acción son $\frac{d}{dt}(\gamma m\dot x)=qE_0$, la ecuación relativista.
+# Para la trayectoria real, $S(\epsilon)$ tiene un mínimo en $\epsilon=0$: cualquier variación chica que respete los extremos aumenta la acción, en primer orden nada y en segundo orden $\frac12\epsilon^2\int m\gamma^3\dot\xi^2dt$. La parábola de Newton, que resuelve otra ecuación, no es un extremo de esta acción: su $S(\epsilon)$ tiene pendiente en $\epsilon=0$. Las ecuaciones de Euler–Lagrange de esta acción son $\frac{d}{dt}(\gamma m\dot x)=qE_0$, la ecuación relativista.
 
 # %% [markdown]
 # ## Experimento 3 — El cuadrimomento en un decaimiento
