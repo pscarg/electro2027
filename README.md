@@ -36,6 +36,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 21 | Clase 21 — Paquetes de ondas, la función de Green de ondas y los potenciales retardados | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/21_retardados.ipynb) |
 | 22 | Clase 22 — Radiación: zonas, dipolo eléctrico, Larmor y el átomo clásico | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/22_radiacion_dipolar.ipynb) |
 | 23 | Clase 23 — Antenas, dipolo magnético, cuadrupolo y dispersión de Rayleigh | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/23_antenas.ipynb) |
+| 24 | Clase 24 — Liénard–Wiechert: los campos de una carga en movimiento | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/24_lienard_wiechert.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
