@@ -8,7 +8,7 @@
 # - Seguir pulsos en el tiempo: uno que llega a un vidrio y uno que viaja en un plasma con la velocidad de grupo.
 # - Comparar la velocidad de fase con la de grupo, y ver cómo se ensancha un paquete en un medio dispersivo.
 #
-# **Material relacionado:** notas de la Clase 27. Guía 11: problemas 3, 4, 6 y 7.
+# **Material relacionado:** notas de la Clase 27. Guía 11: problemas 3, 4 y 6.
 #
 # **Unidades.** Gaussianas, adimensionales: $c=1$; en los experimentos 1 y 2 las longitudes van en unidades de $\lambda_0/2\pi=c/\omega$ (la del vacío), y en el 3 y el 4, en unidades de $c/\omega_p$ cuando hay plasma.
 
@@ -453,4 +453,4 @@ for t in (300, 600):
 # 1. **Guía 11, problema 3.** Deducí $r_p$ y $t_p$ y compará con `fresnel_numerico(n1, n2, theta, (0, 1))`. Cuidado con la convención: acá el $\mathbf E$ de cada onda en polarización p es un múltiplo de $\hat{\mathbf p}=\hat{\mathbf x}\times\mathbf k/(nk_0)$, que para la onda reflejada apunta distinto que para la incidente. Comprobá también que tu $R_p+T_p=1$.
 # 2. **Guía 11, problema 4.** Una lámina de vidrio en el vacío es una sola capa: `reflexion_capas([n], [d], n0=1.0, ns=1.0)`. Graficá $T$ en función de $d$ y comparalo con tu fórmula. ¿Para qué espesores $T=1$?
 # 3. **Guía 11, problema 6.** Con `fresnel_numerico(1.0, np.sqrt(eps + 0j), 0.0)` podés calcular $R$ en incidencia normal para $\varepsilon$ real positivo, real negativo, y para un buen conductor, $\varepsilon=1+4\pi i\sigma/\omega$. Compará con tus resultados, y fijate qué pasa con $R$ para un conductor cuando crece $\sigma/\omega$.
-# 4. **Guía 11, problema 7.** En un medio con $\varepsilon=\varepsilon'+i\varepsilon''$ la amplitud decae. Usá `yee1d` con `eps` y un plasma con `gamma` > 0 (como en la Clase 26) y medí cuánto decae la amplitud en una longitud de onda; compará con la parte imaginaria de tu $k$.
+# 4. **Ondas en un medio absorbente (sección 4 de las notas).** Con $\sqrt{\varepsilon}=n'+in''$ complejo, la amplitud decae como $e^{-n''\omega x/c}$. Usá `yee1d` con un plasma con `gamma` > 0 (como en la Clase 26), medí cuánto decae la amplitud en una longitud de onda y compará con el $n''$ que da la $\varepsilon(\omega)$ de Drude.
