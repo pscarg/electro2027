@@ -38,6 +38,7 @@ Al final de cada notebook hay actividades **Explorá**, conectadas con los probl
 | 23 | Clase 23 — Antenas, dipolo magnético, cuadrupolo y dispersión de Rayleigh | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/23_antenas.ipynb) |
 | 24 | Clase 24 — Liénard–Wiechert: los campos de una carga en movimiento | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/24_lienard_wiechert.ipynb) |
 | 25 | Clase 25 — Dieléctricos: polarización, D y condiciones de borde | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/25_dielectricos.ipynb) |
+| 26 | Clase 26 — Medios magnéticos y modelos de medios: ε(ω), plasma y energía | [![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/pscarg/electro2027/blob/main/notebooks/26_medios_modelos.ipynb) |
 <!-- TABLA-FIN -->
 
 ---
